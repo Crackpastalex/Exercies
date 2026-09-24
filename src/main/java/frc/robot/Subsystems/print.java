@@ -5,7 +5,6 @@
 package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
@@ -27,7 +26,7 @@ public class print extends SubsystemBase {
   }
 
     public Command checkName(){
-    return runOnce(() -> new PrintCommand("Carlos Pastrana"));
+    return runOnce(() -> System.out.println("Carlos Pastrana"));
   } 
   public void setSequentialTimes(){
     sequentialTimes +=1;
@@ -45,7 +44,7 @@ public class print extends SubsystemBase {
   } 
   
     public Command sequential1(){
-    return runOnce(() -> new PrintCommand("sequential1"));
+    return runOnce(() ->System.out.println("Sequential1"));
   } 
 
   @Override

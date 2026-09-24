@@ -5,8 +5,6 @@
 package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
@@ -25,10 +23,10 @@ public class print1 extends SubsystemBase {
   }
 
   public Command checkButton(){
-    return runOnce(() -> new PrintCommand("B"));
+    return runOnce(() -> System.out.println("B"));
   } 
   public Command sequential1(){
-    return runOnce(() -> new PrintCommand("sequential1"));
+    return runOnce(() -> System.out.println("Sequential2"));
   } 
 
   @Override
