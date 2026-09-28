@@ -4,7 +4,6 @@
 
 package frc.robot.Commands;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
 
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -12,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class testEx extends Command {
 
 
-  int contar = 0;
+  static int contar = 0;
   /** Creates a new testEx. */
   public testEx() {
     
@@ -40,6 +39,11 @@ public class testEx extends Command {
     System.out.println(contar);
   }
 
+  public static int getContar(){
+    return contar;
+  }
+
+  
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
