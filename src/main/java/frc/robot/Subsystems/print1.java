@@ -19,7 +19,6 @@ public class print1 extends SubsystemBase {
   /** Creates a new print. */
   public print1() {
 
-
   }
 
   public Command checkButton(){

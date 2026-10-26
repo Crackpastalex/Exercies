@@ -4,12 +4,15 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.testEx;
 import frc.robot.Subsystems.print;
 import frc.robot.Subsystems.print1;
+import frc.robot.Subsystems.motor;
 
 public class RobotContainer {
   public RobotContainer() {
@@ -20,13 +23,14 @@ public class RobotContainer {
   CommandXboxController exerciceController = new CommandXboxController(0);
   print imprimir = new print();
   print1 imprimir1 = new print1();
+  motor motorOne = new motor();
 
 
   private void configureBindings() {
-    exerciceController.a().onTrue(Commands.parallel(imprimir.checkName(),imprimir1.checkButton()));
-    exerciceController.y().onTrue(Commands.parallel(imprimir.checkName(), Commands.waitSeconds(5).andThen(imprimir1.checkButton()))); 
+    exerciceController.a().onTrue(motorOne.runFull());
+    exerciceController.y().onTrue(motorOne.runMid()); 
     exerciceController.b().whileTrue(new testEx());
-    exerciceController.x().onTrue(Commands.parallel(imprimir.checkName(),imprimir1.checkButton().unless(()-> !imprimir.getSequentialTimes())));
+   // exerciceController.x().onTrue(Commands.parallel(imprimir.checkName(),imprimir1.checkButton().unless(()-> !imprimir.getSequentialTimes())));
 
 
   }
@@ -35,3 +39,5 @@ public class RobotContainer {
     return Commands.print("No autonomous command configured");
   }
 }
+
+

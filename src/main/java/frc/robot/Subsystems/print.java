@@ -4,9 +4,11 @@
 
 package frc.robot.Subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+
 
 
 
@@ -39,12 +41,14 @@ public class print extends SubsystemBase {
     }
   }
   
-  public Command CommandSetSequentialTimes(){
-    return runOnce(() -> setSequentialTimes());
+  public Command CommandSetSequentialTimes(Boolean isPreesed){
+    return runOnce(() -> 
+    setSequentialTimes()
+    );
   } 
   
     public Command sequential1(){
-    return runOnce(() ->System.out.println("Sequential1"));
+    return runOnce(() -> System.out.println("Sequential1") );
   } 
 
   @Override
