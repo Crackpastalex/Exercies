@@ -10,7 +10,7 @@ import frc.robot.Commands.testEx;
 import com.overture.lib.gamepads.OverXboxController;
 
 
-import frc.robot.Subsystems.motor;
+import frc.robot.Subsystems.Motor;
 
 public class RobotContainer {
   public RobotContainer() {
@@ -21,14 +21,16 @@ public class RobotContainer {
   OverXboxController exerciceController = new OverXboxController(0, 0, 0);
 
 
-  motor motorOne = new motor();
+  Motor motorOne = new Motor();
 
 
   private void configureBindings() {
-    exerciceController.a().onTrue(motorOne.runFull());
-    exerciceController.y().onTrue(motorOne.runMid()); 
+    exerciceController.a().whileTrue(motorOne.runFull()).onFalse(motorOne.detenerMotor());
+    exerciceController.y().whileTrue(motorOne.runMid()).onFalse(motorOne.detenerMotor()); 
     exerciceController.b().whileTrue(new testEx());
-   // exerciceController.x().onTrue(Commands.parallel(imprimir.checkName(),imprimir1.checkButton().unless(()-> !imprimir.getSequentialTimes())));
+  //  exerciceController.x().onTrue(
+  //   Commands.parallel(imprimir.checkName(),
+  //   imprimir1.checkButton().unless(()-> !imprimir.getSequentialTimes())));
 
 
   }
