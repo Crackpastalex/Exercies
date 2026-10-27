@@ -4,14 +4,12 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Commands.testEx;
-import frc.robot.Subsystems.print;
-import frc.robot.Subsystems.print1;
+import com.overture.lib.gamepads.OverXboxController;
+
+
 import frc.robot.Subsystems.motor;
 
 public class RobotContainer {
@@ -20,9 +18,9 @@ public class RobotContainer {
   }
 
   
-  CommandXboxController exerciceController = new CommandXboxController(0);
-  print imprimir = new print();
-  print1 imprimir1 = new print1();
+  OverXboxController exerciceController = new OverXboxController(0, 0, 0);
+
+
   motor motorOne = new motor();
 
 
