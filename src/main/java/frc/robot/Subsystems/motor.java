@@ -11,13 +11,13 @@ import com.ctre.phoenix6.controls.VoltageOut;
 
 // Configuracion del motor, no usar el xboxControler, 
 
-public class motor extends SubsystemBase {
+public class Motor extends SubsystemBase {
   OverTalonFX overMotor = new OverTalonFX(constants.constantsConfig(), 23, constants.rio);
   VoltageOut voltageRequest = new VoltageOut(0.0);
 
 
   /** Creates a new motor. */
-  public motor() {
+  public Motor() {
    
   }
 
@@ -28,14 +28,20 @@ public class motor extends SubsystemBase {
 
   public Command runFull(){
     return runOnce(() -> 
-       overMotor.setControl(voltageRequest.withOutput(12.0))
+       overMotor.setControl(voltageRequest.withOutput(6.0))
     );
   } 
     public Command runMid(){
     return runOnce(() -> 
-      overMotor.setControl(voltageRequest.withOutput(5.0))
+      overMotor.setControl(voltageRequest.withOutput(3.0))
     );
+
   } 
+    public Command detenerMotor(){
+    return runOnce(() -> 
+      overMotor.setControl(voltageRequest.withOutput(0))
+    );
+   }
 }
 
 
